@@ -1,24 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
+import { BlocklyWorkspace } from 'react-blockly';
 import './App.css';
+
+
+const initialXml = '<xml xmlns="http://www.w3.org/1999/xhtml"><block type="text" x="70" y="30"><field name="TEXT">XML</field></block></xml>';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+       <BlocklyWorkspace
+          // toolboxConfiguration={toolboxConfiguration}
+          workspaceConfiguration={{
+            grid: {
+              spacing: 20,
+              length: 3,
+              colour: "#ccc",
+              snap: true,
+            },
+          }}
+          initialXml={initialXml}
+          // initialJson={serialState === "JSON" ? ConfigFiles.INITIAL_JSON : undefined}
+          className="fill-height"
+          // onWorkspaceChange={onWorkspaceChange}
+          // onXmlChange={onXmlChange}
+          // onJsonChange={onJsonChange}
+        />
     </div>
   );
 }
